@@ -27,7 +27,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-wdv1s-10mr&069!f=$2ac^mjim$dj67uzgltiarp8kw3jyn(b@'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*','8000-solracnauj9-youmatterpp-bgy9593mh5p.ws-eu108.gitpod.io','.herokuapp.com']
 
@@ -53,6 +53,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+   
 ]
 
 ROOT_URLCONF = 'my_project.urls'
@@ -88,6 +89,12 @@ WSGI_APPLICATION = 'my_project.wsgi.application'
 DATABASES = {
     'default': dj_database_url.parse("postgres://vqzkldkj:WE3T_qRGZiaWQlqckSbUdhsC4jzvKo5y@trumpet.db.elephantsql.com/vqzkldkj")
 }
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://*.codeanyapp.com",
+    "https://*.herokuapp.com",
+    "https://8000-solracnauj9-youmatterpp-bgy9593mh5p.ws-eu108.gitpod.io",
+]
 
 
 # Password validation
