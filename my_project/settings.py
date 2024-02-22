@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-wdv1s-10mr&069!f=$2ac^mjim$dj67uzgltiarp8kw3jyn(b@'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['8000-solracnauj9-youmatterpp-bgy9593mh5p.ws-eu108.gitpod.io']
+ALLOWED_HOSTS = ['8000-solracnauj9-youmatterpp-bgy9593mh5p.ws-eu108.gitpod.io','.herokuapp.com']
 
 
 # Application definition
@@ -117,7 +117,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
