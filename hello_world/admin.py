@@ -1,30 +1,20 @@
 from django.contrib import admin
 from .models import Post, Comment
+from django_summernote.admin import SummernoteModelAdmin
 
 @admin.register(Post)
-class PostAdmin(admin.ModelAdmin):
-    list_display = ('title', 'author', 'created_on', 'status') 
-    list_filter = ('author', 'created_on', 'status') 
+class PostAdmin(SummernoteModelAdmin):
+    """
+    Lists fields for display in admin, fileds for search,
+    field filters, fields to prepopulate and rich-text editor.
+    """
 
-    fieldsets = (
-        ('Basic Information', {
-            'fields': ('title', 'slug', 'author', 'featured_image', 'content')
-        }),
-        ('Publication Information', {
-            'fields': ('created_on', 'status', 'excerpt', 'updated_on')
-        }),
-    )
+    list_display = ('title', 'slug', 'status', 'created_on')
+    search_fields = ['title', 'content']
+    list_filter = ('status', 'created_on',)
+    prepopulated_fields = {'slug': ('title',)}
+    summernote_fields = ('content',)
 
-@admin.register(Comment)
-class CommentAdmin(admin.ModelAdmin):
-    list_display = ('post', 'author', 'created_on', 'approved', 'published_date')
-    list_filter = ('post', 'author', 'approved', 'created_on')
-    
-    fieldsets = (
-        ('Basic Information', {
-            'fields': ('post', 'author', 'body')
-        }),
-        ('Status Information', {
-            'fields': ('approved', 'created_on', 'published_date')
-        }),
-    )
+
+# Register your models here.
+admin.site.register(Comment)
