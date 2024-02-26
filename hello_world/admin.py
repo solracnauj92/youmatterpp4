@@ -15,6 +15,7 @@ class PostAdmin(admin.ModelAdmin):
         }),
     )
 
+@admin.register(Comment)
 class CommentAdmin(admin.ModelAdmin):
     list_display = ('post', 'author', 'created_on', 'approved', 'published_date')
     list_filter = ('post', 'author', 'approved', 'created_on')
