@@ -14,3 +14,16 @@ class PostAdmin(admin.ModelAdmin):
             'fields': ('created_on', 'status', 'excerpt', 'updated_on')
         }),
     )
+
+class CommentAdmin(admin.ModelAdmin):
+    list_display = ('post', 'author', 'created_on', 'approved', 'published_date')
+    list_filter = ('post', 'author', 'approved', 'created_on')
+    
+    fieldsets = (
+        ('Basic Information', {
+            'fields': ('post', 'author', 'body')
+        }),
+        ('Status Information', {
+            'fields': ('approved', 'created_on', 'published_date')
+        }),
+    )
