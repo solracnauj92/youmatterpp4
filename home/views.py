@@ -2,27 +2,27 @@ from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic
 from django.contrib import messages
 from django.http import HttpResponseRedirect
-from .models import Post, Comment
+from .models import Post, Comment, Tag
 from .forms import CommentForm
 
 # Create your views here.
 class PostList(generic.ListView):
     queryset = Post.objects.filter(status=1)
-    template_name = "hello_world/index.html"
+    template_name = "home/index.html"
     paginate_by = 6
 
 def post_detail(request, slug):
     """
-    Display an individual :model:`hello_world.Post`.
+    Display an individual :model:`home.Post`.
 
     **Context**
 
     ``post``
-        An instance of :model:`hello_world.Post`.
+        An instance of :model:`home.Post`.
 
     **Template:**
 
-    :template:`hello_world/post_detail.html`
+    :template:`home/post_detail.html`
     """
 
     queryset = Post.objects.filter(status=1)
@@ -51,7 +51,7 @@ def post_detail(request, slug):
 
     return render(
     request,
-    "hello_world/post_detail.html",
+    "home/post_detail.html",
     {
         "post": post,
         "comments": comments,

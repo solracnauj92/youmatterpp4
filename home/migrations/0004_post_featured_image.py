@@ -7,7 +7,7 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('hello_world', '0003_alter_comment_options_alter_post_options_and_more'),
+        ('home', '0003_alter_comment_options_alter_post_options_and_more'),
     ]
 
     operations = [
